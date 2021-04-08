@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Play.Catalog.Service.Dtos;
 using Play.Catalog.Service.Entities;
 using Play.Catalog.Service.Extensions;
-using Play.Catalog.Service.Repository;
+using Play.Catalog.Service.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +14,8 @@ namespace Play.Catalog.Service.Controllers
     [Route("api/[controller]")]
     public class ItemsController : ControllerBase
     {
-        private readonly IItemsRepository _itemsRepository;
-        public ItemsController(IItemsRepository itemsRepository)
+        private readonly IRepository<Item> _itemsRepository;
+        public ItemsController(IRepository<Item> itemsRepository)
         {
             _itemsRepository = itemsRepository;
         }
